@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="/src/css/style.css" />
+    <title>SuperHeroes</title>
+  </head>
+  <body>
+    <!-- Titulo principal -->
+    <header>
+      <div>
+        <h1 class="title is-3 has-text-centered has-text-white">
+          Buscador de SuperHeroes
+        </h1>
+        <p class="subtitle is-6 mt-4 has-text-centered">
+          BUSCA TU SUPERHEROE O VILLANO FAVORITO
+        </p>
+      </div>
+    </header>
+
+    <!--Buscador y Filtros-->
+    <main class="container background">
+      <section class="section has-bac">
+        <div class="columns is-multiline is-centered">
+          <!-- Buscador -->
+          <div class="column is-3">
+            <div class="field">
+              <div class="control has-icons-left">
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="Buscar..."
+                  id="buscador"
+                />
+                <span class="icon is-small is-left"> 🔍 </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Género -->
+          <div class="column is-2">
+            <div class="select is-fullwidth">
+              <select id="genero">
+                <option value="todos">Todos los generos</option>
+                <option value="heroes">Femeninos</option>
+                <option value="heroes">Masculinos</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Tipo -->
+          <div class="column is-2">
+            <div class="select is-fullwidth">
+              <select id="tipo">
+                <option value="todos">Todos los tipos</option>
+                <option value="villanos">Villanos</option>
+                <option value="heroes">Heroes</option>
+                <option value="heroes">Neutral</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Editorial -->
+          <div class="column is-2">
+            <div class="select is-fullwidth">
+              <select id="editorial">
+                <option value="todos">Todos las editoriales</option>
+                <option value="villanos">Marvel</option>
+                <option value="heroes">DC Comics</option>
+                <option value="heroes">Dark Horse</option>
+              </select>
+            </div>
+          </div>
+
+          <!--Limpiar Filtros-->
+          <div class="column is-2">
+            <button id="limpiar" class="button is-danger is-outlined">
+              Limpiar Filtros
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
