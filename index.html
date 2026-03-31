@@ -5,91 +5,138 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
-      rel="stylesheet"
-    />
-
+      rel="stylesheet"/>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
-    />
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"/>
+      <link rel="icon" type="image/png" href="/images/hero.png">
     <link rel="stylesheet" href="/src/css/style.css" />
-    <title>SuperHeroes</title>
+    <title> Buscador de Superhéroes</title>
   </head>
   <body>
     <!-- Titulo principal -->
     <header>
-      <div>
-        <h1 class="title is-3 has-text-centered has-text-white">
+      <div class="content-title p-5 mt-5">
+        <h1 class="title is-2 has-text-centered has-text-white">
           Buscador de SuperHeroes
         </h1>
-        <p class="subtitle is-6 mt-4 has-text-centered">
+        <p class="subtitle is-4 mt-4 has-text-centered has-text-danger has-text-weight-bold">
           BUSCA TU SUPERHEROE O VILLANO FAVORITO
         </p>
       </div>
     </header>
 
     <!--Buscador y Filtros-->
-    <main class="container background">
-      <section class="section has-bac">
-        <div class="columns is-multiline is-centered">
-          <!-- Buscador -->
-          <div class="column is-3">
-            <div class="field">
-              <div class="control has-icons-left">
-                <input
-                  class="input"
-                  type="text"
-                  placeholder="Buscar..."
-                  id="buscador"
-                />
-                <span class="icon is-small is-left"> 🔍 </span>
+    <main>
+      <section class="section fondo-filtros">
+        <div class="container">
+          <div class="columns is-centered is-vcentered is-multiline">
+            <!-- Buscador -->
+            <div class="column is-12-mobile is-3-desktop">
+              <div class="field">
+                <div class="control has-icons-left">
+                  <input
+                    class="input"
+                    type="text"
+                    placeholder="Buscar..."
+                    id="buscador"
+                  />
+                  <span class="icon is-small is-left"> 🔍 </span>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Género -->
-          <div class="column is-2">
-            <div class="select is-fullwidth">
-              <select id="genero">
-                <option value="todos">Todos los generos</option>
-                <option value="heroes">Femeninos</option>
-                <option value="heroes">Masculinos</option>
-              </select>
+            <!-- Villanos o heroes -->
+            <div class="column is-12-mobile is-2-desktop">
+              <div class="select is-fullwidth">
+                <select id="tipo">
+                  <option value="todos">Todos los tipos</option>
+                  <option value="bad">Villanos</option>
+                  <option value="good">Heroes</option>
+                  <option value="neutral">Neutral</option>
+                </select>
+              </div>
             </div>
-          </div>
 
-          <!-- Tipo -->
-          <div class="column is-2">
-            <div class="select is-fullwidth">
-              <select id="tipo">
-                <option value="todos">Todos los tipos</option>
-                <option value="villanos">Villanos</option>
-                <option value="heroes">Heroes</option>
-                <option value="heroes">Neutral</option>
-              </select>
+            <!-- Editorial -->
+            <div class="column is-12-mobile is-2-desktop">
+              <div class="select is-fullwidth">
+                <select id="editorial">
+                  <option value="todos">Todos las editoriales</option>
+                  <option value="marvel">Marvel</option>
+                  <option value="dc">DC Comics</option>
+                  <option value="dark">Dark Horse</option>
+                </select>
+              </div>
             </div>
-          </div>
 
-          <!-- Editorial -->
-          <div class="column is-2">
-            <div class="select is-fullwidth">
-              <select id="editorial">
-                <option value="todos">Todos las editoriales</option>
-                <option value="villanos">Marvel</option>
-                <option value="heroes">DC Comics</option>
-                <option value="heroes">Dark Horse</option>
-              </select>
+            <!-- Orden alfabético -->
+            <div class="column is-12-mobile is-2-desktop">
+              <div class="select is-fullwidth">
+                <select id="orden">
+                  <option value="az">A → Z</option>
+                  <option value="za">Z → A</option>
+                </select>
+              </div>
             </div>
-          </div>
 
-          <!--Limpiar Filtros-->
-          <div class="column is-2">
-            <button id="limpiar" class="button is-danger is-outlined">
-              Limpiar Filtros
-            </button>
+            <!-- Limpiar -->
+            <div class="column is-12-mobile is-2-desktop">
+              <button id="limpiar" class="button is-fullwidth">
+                Limpiar filtros
+              </button>
+            </div>
           </div>
         </div>
       </section>
+
+      <!--Contenedor de heroes-->
+      <section class="container">
+        <div
+          id="loading"
+          class="is-justify-content-center is-align-items-center"
+        >
+          <button class="button is-loading is-large is-danger">Cargando</button>
+        </div>
+
+        <!--Heroes...-->
+        <div id="heroes-grid" class="grid">
+          <!--Aca va la grilla de heroes, se llena con JS-->
+        </div>
+      </section>
+
+      <!-- Modal -->
+      <div id="hero-modal" class="modal">
+        <div class="modal-background"></div>
+
+        <div class="modal-content">
+          <div class="box" id="modal-content">
+            <!-- contenido dinámico -->
+          </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+      </div>
+
+      <!--Paginación-->
+      <section class="section">
+        <div class="content-pag has-text-centered">
+          <button id="first" class="button is-dark mr-2">⏮</button>
+          <button id="prev" class="button is-dark mr-2">◀</button>
+
+          <span id="pagina-info"></span>
+
+          <button id="next" class="button is-dark ml-2">▶</button>
+          <button id="last" class="button is-dark ml-2">⏭</button>
+        </div>
+      </section>
     </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p class="footer-text has-text-centered letter-spacing-15">
+        &copy; 2026 Buscador de SuperHeroes. Creditos a Florencia Serrano.
+      </p>
+    </footer>
   </body>
+  <script type="module" src="/src/js/main.js"></script>
 </html>
