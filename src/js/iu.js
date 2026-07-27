@@ -9,6 +9,20 @@ export function loader(data) {
   }
 }
 
+// Carrusel en el header
+export function iniciarCarrusel() {
+  const slides = document.querySelectorAll(".slide");
+
+  if (slides.length === 0) return;
+
+  let indice = 0;
+
+  setInterval(() => {
+    slides[indice].classList.remove("active");
+    indice = (indice + 1) % slides.length;
+    slides[indice].classList.add("active");
+  }, 3000);
+}
 //Renderizado de heroes
 export function renderHeroes(heroes, gridHeroes) {
   gridHeroes.innerHTML = "";
@@ -51,7 +65,7 @@ export function renderHeroes(heroes, gridHeroes) {
         <img src="${heroe.images.md}" alt="${heroe.name}">
       </div>
       <div class="card-content">
-        <p class="title is-6">${heroe.name}</p>
+        <p class="title is-6 title-card">${heroe.name}</p>
         <button class="button-custom">Ver más</button>
       </div>
     </div>

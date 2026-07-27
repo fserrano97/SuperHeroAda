@@ -3,36 +3,86 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
-      rel="stylesheet"/>
-    <link
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+  <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"/>
-      <link rel="icon" type="image/png" href="/images/hero.png">
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
+    />
+    <link rel="icon" type="image/png" href="/images/hero.png" />
     <link rel="stylesheet" href="/src/css/style.css" />
-    <title> Buscador de Superhéroes</title>
+    <title>Buscador de Superhéroes</title>
   </head>
   <body>
     <!-- Titulo principal -->
     <header>
-      <div class="content-title p-5 mt-5">
-        <h1 class="title is-2 has-text-centered has-text-white">
-          Buscador de SuperHeroes
-        </h1>
-        <p class="subtitle is-4 mt-4 has-text-centered has-text-danger has-text-weight-bold">
-          BUSCA TU SUPERHEROE O VILLANO FAVORITO
-        </p>
+      <div
+        class="hero-left is-flex-direction-column is-align-items-center"
+      >
+        <div class="content-title ">
+          <h1 class="title-header-1 has-text-white has-text-weight-bold">
+            BUSCADOR DE
+          </h1>
+          <h2 class="title-header-2 has-text-white">SUPERHEROES</h2>
+          <p
+            class="subtitle-header has-text-centered has-text-weight-bold"
+          >
+            BUSCA TU HEROE O VILLANO FAVORITO
+          </p>
+        </div>
       </div>
+
+      <div class="hero-right">
+        <div class="carousel">
+  <img class="slide active" src="./heroes/batman.jpg" alt="">
+  <img class="slide" src="./heroes/ironman.jpg" alt="">
+  <img class="slide" src="./heroes/spider.jpg" alt="">
+ <img class="slide" src="./heroes/venom.jpg" alt="">
+</div>
+      </div>
+
+      
     </header>
 
+    <section>
+<div class="ticker ">
+  <div class="ticker-content">
+    <span>MARVEL</span>
+    <span>DC COMICS</span>
+    <span>DARK HORSE</span>
+    <span>ORACLE</span>
+    <span>TEMPEST</span>
+     <span>TOXIC</span>
+      <span>SPOILER</span>
+      <span>SYFY</span>
+      <SPAN>GIANT-MAN</span>
+
+         <span>MARVEL</span>
+    <span>DC COMICS</span>
+    <span>DARK HORSE</span>
+    <span>ORACLE</span>
+    <span>TEMPEST</span>
+     <span>TOXIC</span>
+      <span>SPOILER</span>
+      <span>SYFY</span>
+      <SPAN>GIANT-MAN</span>
+
+      
+  </div>
+</div> 
+    </section>
+    
     <!--Buscador y Filtros-->
     <main>
-      <section class="section fondo-filtros">
-        <div class="container">
-          <div class="columns is-centered is-vcentered is-multiline">
+      <div class="container-filters-cards is-flex" >
+
+      
+      <section class="section fondo-filtros is-flex">
+        <div class="container ">
+          <div>
             <!-- Buscador -->
-            <div class="column is-12-mobile is-3-desktop">
+            <div class="column is-12-mobile">
               <div class="field">
                 <div class="control has-icons-left">
                   <input
@@ -47,7 +97,7 @@
             </div>
 
             <!-- Villanos o heroes -->
-            <div class="column is-12-mobile is-2-desktop">
+            <div class="column is-12-mobile">
               <div class="select is-fullwidth">
                 <select id="tipo">
                   <option value="todos">Todos los tipos</option>
@@ -59,7 +109,7 @@
             </div>
 
             <!-- Editorial -->
-            <div class="column is-12-mobile is-2-desktop">
+            <div class="column is-12-mobile">
               <div class="select is-fullwidth">
                 <select id="editorial">
                   <option value="todos">Todos las editoriales</option>
@@ -71,7 +121,7 @@
             </div>
 
             <!-- Orden alfabético -->
-            <div class="column is-12-mobile is-2-desktop">
+            <div class="column is-12-mobile">
               <div class="select is-fullwidth">
                 <select id="orden">
                   <option value="az">A → Z</option>
@@ -81,7 +131,7 @@
             </div>
 
             <!-- Limpiar -->
-            <div class="column is-12-mobile is-2-desktop">
+            <div class="column is-12-mobile">
               <button id="limpiar" class="button is-fullwidth">
                 Limpiar filtros
               </button>
@@ -117,6 +167,9 @@
         <button class="modal-close is-large" aria-label="close"></button>
       </div>
 
+      </div>
+
+
       <!--Paginación-->
       <section class="section">
         <div class="content-pag has-text-centered">
@@ -133,8 +186,8 @@
 
     <!-- Footer -->
     <footer class="footer">
-      <p class="footer-text has-text-centered letter-spacing-15">
-        &copy; 2026 Buscador de SuperHeroes. Creditos a Florencia Serrano.
+      <p class="footer-text  has-text-centered letter-spacing-15">
+        2026 Buscador de SuperHeroes. Creditos a Florencia Serrano.
       </p>
     </footer>
   </body>

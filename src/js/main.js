@@ -4,13 +4,13 @@ import { loader } from "./iu.js";
 import { renderHeroes } from "./iu.js";
 import { abrirModal } from "./iu.js";
 import { cerrarModal } from "./iu.js";
-
+import { iniciarCarrusel } from "./iu.js";
 
 let heroesFiltrados = [];
 let heroesGlobal = [];
 let paginaActual = 1;
 
-const heroesPorPagina = 20;
+const heroesPorPagina = 8;
 
 // DOMContentLoaded para asegurar que el HTML esté listo
 document.addEventListener("DOMContentLoaded", async () => {
@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const first = document.getElementById("first");
   const last = document.getElementById("last");
   
+
   //Loader true = están cargando los heroes
   loader(true);
 
@@ -36,7 +37,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   cargarEditoriales(heroes);
   actualizarVista($heroesGrid);
-
+  iniciarCarrusel();
+  
   // si hay heroes
   if (heroes && heroes.length > 0) {
     heroesGlobal = heroes; // 🔥 GUARDAR
@@ -45,6 +47,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     $heroesGrid.innerHTML =
       '<div class="cell">No se encontraron heroes. Intente nuevamente</div>';
   }
+
+  
 
   //Paginación
   next.addEventListener("click", () => {
